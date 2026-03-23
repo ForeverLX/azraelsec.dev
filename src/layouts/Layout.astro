@@ -1,0 +1,45 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    {description && <meta name="description" content={description} />}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <title>{title} — Azrael Security</title>
+  </head>
+  <body class="bg-bg text-text font-sans min-h-screen flex flex-col">
+    <nav class="border-b border-white/10 px-6 py-4 flex items-center justify-between">
+      <a href="/" class="font-mono text-primary font-semibold tracking-tight hover:text-accent transition-colors">
+        Azrael Security
+      </a>
+      <ul class="flex gap-6 text-sm text-text-muted">
+        <li><a href="/projects" class="hover:text-text transition-colors">Projects</a></li>
+        <li><a href="/research" class="hover:text-text transition-colors">Research</a></li>
+        <li><a href="/infrastructure" class="hover:text-text transition-colors">Infrastructure</a></li>
+        <li><a href="/about" class="hover:text-text transition-colors">About</a></li>
+      </ul>
+    </nav>
+
+    <main class="flex-1 px-6 py-12 max-w-5xl mx-auto w-full">
+      <slot />
+    </main>
+
+    <footer class="border-t border-white/10 px-6 py-6 text-center">
+      <span class="font-mono text-xs text-text-muted tracking-widest uppercase">
+        Below the abstraction
+      </span>
+    </footer>
+  </body>
+</html>

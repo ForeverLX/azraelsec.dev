@@ -1,17 +1,35 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Home">
+  <section class="py-16">
+    <h1 class="font-mono text-primary text-4xl md:text-5xl font-semibold leading-tight mb-6">
+      Built from nothing.<br />Earned every rep.<br />Still building.
+    </h1>
+    <p class="text-text-muted text-lg max-w-2xl mb-10">
+      I build red team infrastructure and conduct original security research under the Azrael Security brand.
+      My work lives below the abstraction layer — systems, protocols, and the boundaries between them.
+    </p>
+    <a
+      href="/research"
+      class="inline-block border border-accent text-accent px-5 py-2 font-mono text-sm hover:bg-accent hover:text-bg transition-colors"
+    >
+      View Research →
+    </a>
+  </section>
+
+  <section class="border-t border-white/10 py-16">
+    <h2 class="font-mono text-primary text-2xl font-semibold mb-4">Veil</h2>
+    <p class="text-text-muted max-w-2xl mb-6">
+      Veil is a three-node WireGuard mesh running live red team infrastructure — C2, self-hosted tooling,
+      and operator workstations. Built from scratch, operated daily.
+    </p>
+    <a
+      href="/infrastructure"
+      class="font-mono text-sm text-accent hover:underline"
+    >
+      View Infrastructure →
+    </a>
+  </section>
+</Layout>
