@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import veilDiagram from '../assets/veil-diagram.svg';
+---
+
+<Layout title="Infrastructure | Azrael Security">
+  <section class="py-16">
+    <h1 class="font-mono text-primary text-4xl md:text-5xl font-semibold leading-tight mb-4">
+      Veil
+    </h1>
+    <p class="text-text-muted text-lg max-w-2xl mb-10">
+      Three nodes. One mesh.
+    </p>
+    <p class="text-text-muted max-w-2xl mb-10">
+      Veil is a three-node WireGuard mesh built to support offensive security research and tooling.
+      Hub-and-spoke topology via Cerberus. Mythic C2 on an isolated NixOS node.
+    </p>
+
+    <div class="mb-12 border border-white/10 overflow-hidden">
+      <Image
+        src={veilDiagram}
+        alt="Veil mesh topology diagram: Cerberus hub node at center connected via WireGuard to NightForge operator workstation, Tairn attack node, and iPhone mobile client"
+        class="w-full h-auto"
+      />
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-3">
+      <div class="border border-white/10 p-6">
+        <div class="mb-3">
+          <span class="font-mono text-primary font-semibold text-lg">Cerberus</span>
+          <span class="font-mono text-text-muted text-sm ml-3">10.0.0.1</span>
+        </div>
+        <p class="text-text-muted text-sm leading-relaxed">
+          Edge node and mesh hub. Arch Linux, headless. Podman rootless Quadlets, no daemon, no root surface.
+          Hosts Pi-hole, SearXNG, Caddy with local CA, Gitea, Vaultwarden, Netdata, Cowrie honeypot, and Suricata.
+        </p>
+      </div>
+
+      <div class="border border-white/10 p-6">
+        <div class="mb-3">
+          <span class="font-mono text-primary font-semibold text-lg">NightForge</span>
+          <span class="font-mono text-text-muted text-sm ml-3">10.0.0.3</span>
+        </div>
+        <p class="text-text-muted text-sm leading-relaxed">
+          The architectural center of Veil. Arch Linux, Niri WM, Neovim. Every infrastructure decision,
+          research direction, and tooling choice originates here.
+        </p>
+      </div>
+
+      <div class="border border-white/10 p-6">
+        <div class="mb-3">
+          <span class="font-mono text-primary font-semibold text-lg">Tairn</span>
+          <span class="font-mono text-text-muted text-sm ml-3">10.0.0.4</span>
+        </div>
+        <p class="text-text-muted text-sm leading-relaxed">
+          Attack node. NixOS 24.11, declarative config, no drift. Runs Mythic C2 with Poseidon and Apollo agents.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-white/10 py-10">
+    <p class="text-text-muted max-w-2xl">
+      Veil exists because the research required it. Every node exists for a reason. Every decision is documented.
+    </p>
+  </section>
+</Layout>
