@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Research | Azrael Security">
+  <section class="py-16">
+    <h1 class="font-mono text-primary text-4xl md:text-5xl font-semibold leading-tight mb-4">
+      Research
+    </h1>
+    <p class="text-text-muted text-lg max-w-2xl mb-10">
+      Original security research conducted on live infrastructure. Every finding is reproducible, documented, and mapped to real threat models.
+    </p>
+
+    <div class="border border-white/10 p-6 flex flex-col gap-4 max-w-2xl">
+      <div class="flex items-center gap-3">
+        <span class="font-mono text-primary font-semibold text-lg">Container Boundary Research</span>
+        <span class="font-mono text-xs px-2 py-0.5 rounded-full border border-accent text-accent">Published</span>
+      </div>
+      <p class="text-text-muted text-sm leading-relaxed">
+        An investigation into OCI hook execution in rootless Podman deployments and whether nvidia-container-runtime executes hooks with privileges exceeding the container's user namespace mapping. Threat model: compromised agentic workload in a GPU-enabled multi-tenant environment. Builds on CVE-2025-23266.
+      </p>
+      <a
+        href="https://github.com/ForeverLX/security-research/tree/main/research/container-boundaries"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-mono text-xs text-text-muted hover:text-accent transition-colors mt-auto"
+      >
+        github.com/ForeverLX/security-research
+      </a>
+    </div>
+  </section>
+
+  <section class="border-t border-white/10 py-10">
+    <p class="text-text-muted max-w-2xl">
+      Research is conducted on Veil, a self-operated three-node WireGuard mesh. No synthetic lab environments.
+    </p>
+  </section>
+</Layout>
